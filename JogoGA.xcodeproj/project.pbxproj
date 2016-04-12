@@ -8,23 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5F41CBC6DCD0001E892 /* main.cpp */; };
+		4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5FB1CBC6EDD0001E892 /* Image.cpp */; };
+		4798C5FF1CBC6F5D0001E892 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798C5FE1CBC6F5D0001E892 /* OpenGL.framework */; };
+		4798C6011CBC6F620001E892 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798C6001CBC6F620001E892 /* GLUT.framework */; };
+		4798C6071CBC728C0001E892 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C6051CBC728C0001E892 /* Loader.cpp */; };
+		4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C6041CBC718B0001E892 /* braveText.ptm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4798C5EF1CBC6DCD0001E892 /* CopyFiles */ = {
+		4798C6091CBC76A20001E892 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4798C5F11CBC6DCD0001E892 /* JogoGA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JogoGA; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798C5F41CBC6DCD0001E892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4798C5FB1CBC6EDD0001E892 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		4798C5FC1CBC6EDD0001E892 /* Image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
+		4798C5FE1CBC6F5D0001E892 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		4798C6001CBC6F620001E892 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		4798C6041CBC718B0001E892 /* braveText.ptm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = braveText.ptm; path = ../braveText.ptm; sourceTree = "<group>"; };
+		4798C6051CBC728C0001E892 /* Loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
+		4798C6061CBC728C0001E892 /* Loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Loader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4798C6011CBC6F620001E892 /* GLUT.framework in Frameworks */,
+				4798C5FF1CBC6F5D0001E892 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +56,8 @@
 		4798C5E81CBC6DCD0001E892 = {
 			isa = PBXGroup;
 			children = (
+				4798C6001CBC6F620001E892 /* GLUT.framework */,
+				4798C5FE1CBC6F5D0001E892 /* OpenGL.framework */,
 				4798C5F31CBC6DCD0001E892 /* JogoGA */,
 				4798C5F21CBC6DCD0001E892 /* Products */,
 			);
@@ -58,6 +75,11 @@
 			isa = PBXGroup;
 			children = (
 				4798C5F41CBC6DCD0001E892 /* main.cpp */,
+				4798C5FB1CBC6EDD0001E892 /* Image.cpp */,
+				4798C5FC1CBC6EDD0001E892 /* Image.hpp */,
+				4798C6051CBC728C0001E892 /* Loader.cpp */,
+				4798C6061CBC728C0001E892 /* Loader.hpp */,
+				4798C6041CBC718B0001E892 /* braveText.ptm */,
 			);
 			path = JogoGA;
 			sourceTree = "<group>";
@@ -71,7 +93,7 @@
 			buildPhases = (
 				4798C5ED1CBC6DCD0001E892 /* Sources */,
 				4798C5EE1CBC6DCD0001E892 /* Frameworks */,
-				4798C5EF1CBC6DCD0001E892 /* CopyFiles */,
+				4798C6091CBC76A20001E892 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -119,6 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */,
+				4798C6071CBC728C0001E892 /* Loader.cpp in Sources */,
+				4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
