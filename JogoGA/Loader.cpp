@@ -59,6 +59,7 @@ Image* readImage(char* name) {
         
         if(arq.eofbit) {
             //file read
+            update++;//THIS IS A \N I'M DEAD
             for (int y = h-1; y >= 0; y--) {
                 for (int x = 0; x < w; x++){
                     a = (((float) *update)/maxValue) * 0xFF;
@@ -67,8 +68,11 @@ Image* readImage(char* name) {
                     update++;
                     g = (((float) *update)/maxValue) * 0xFF;
                     update++;
-                    b = (((float) *update)/maxValue) * 0xFF;
-                    std::cerr << "vlue tem float: " <<(float) *update << "mas tem " << (int ) *update;
+                    float b1 = (float) *update;
+                    b = (b1/maxValue) * 0xFF;
+                    if (b != 0) {
+                        wait(NULL);
+                    }
                     update++;
                     int argb = (a << 24) | (r << 16) | (g << 8) | b;
                     img->setPixel(argb, x, y);
