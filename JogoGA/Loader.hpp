@@ -16,6 +16,7 @@
 #include <iostream>
 
 Image* readImage(char* name);
+Image* overlap(Image* background, int x, int y, Image* up);
 
 
 #endif /* Loader_hpp */

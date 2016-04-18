@@ -29,6 +29,8 @@
 unsigned char kb;
 
 Image* img;
+Image* background;
+Image* nextFrame;
 
 void init(void)
 {
@@ -36,7 +38,11 @@ void init(void)
     //glClearColor(0.0, 0.0, 0.0, 0.0);
     glClearColor(1.0, 1.0, 1.0, 1.0);
     
-    img = readImage("braveText.ptm");
+    background = readImage("mario.ptm");
+    
+    img = readImage("logo_unisinos01.ptm");
+    
+    background->plot(img, 0, 0);
     
     /*  initialize viewing values  */
     glMatrixMode(GL_PROJECTION);
@@ -53,12 +59,10 @@ void keyboard(unsigned char key, int x, int y){
     kb = key;
 }
 
-
-
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glDrawPixels(img->getWidth(), img->getHeight(), GL_BGRA_EXT, GL_UNSIGNED_BYTE,img->getPixels());
+    glDrawPixels(background->getWidth(), background->getHeight(), GL_BGRA_EXT, GL_UNSIGNED_BYTE,background->getPixels());
     
     glFlush();
 }

@@ -10,36 +10,29 @@
 #define Image_hpp
 
 #include <stdio.h>
+#include <string.h>
 
 
 
 class Image {
 public:
-    Image(int w, int h){
-        width = w; height = h;
-        pixels = new int[w*h];
-    }
-    void setPixel(int rgb, int x, int y){
-        pixels[x + y*width] = rgb;
-    }
-    int getPixel(int x, int y){
-        return pixels[x + y*width];
-    }
+    Image(int w, int h);
+    void setPixel(int rgb, int x, int y);
+    int getPixel(int x, int y);
     int getWidth(){ return width; }
     int getHeight(){ return height; }
+    int* getPixels(){ return pixels; }
+    void plot(Image* fg, int sx, int sy);
     
-    int* getPixels(){
-        return pixels;
-    }
-    ~Image() {
-        delete pixels;
-    }
+    ~Image() { delete pixels; }
+    Image* copy();
     
 private:
     int *pixels; // alternativamente char *pixels ñ 1 byte por canal
     // neste caso, pixels = new char[w*h*3];
     int width, height;
 };
+
 
 
 

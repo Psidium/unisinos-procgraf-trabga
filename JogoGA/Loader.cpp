@@ -23,8 +23,7 @@ Image* readImage(char* name) {
     if (buffer[0] == '#') {
         arq.getline(buffer, 1024);
         arq >> w;
-    }
-    else {
+    } else {
         w = atoi(buffer);
     }
     
@@ -42,16 +41,45 @@ Image* readImage(char* name) {
         for (int y = h-1; y >= 0; y--) {
             for (int x = 0; x < w; x++){
                 arq >> a;
+                a = ((float) a/maxValue) * 0xFF;
                 arq >> r;
+                r = ((float) r/maxValue) * 0xFF;
                 arq >> g;
+                g = ((float) g/maxValue) * 0xFF;
                 arq >> b;
+                b = ((float) b/maxValue) * 0xFF;
                 int argb = (a << 24) | (r << 16) | (g << 8) | b;
                 img->setPixel(argb, x, y);
             }
         }
-    }
-    else if (strcmp(type, "P8") == 0) { //binario
-        arq.read(buffer, 1024);
+    } else if (strcmp(type, "P8") == 0) { //binario
+        size_t length = w * h * 4 * sizeof(char);
+        char* update = new char[length];
+        arq.read(update, (std::streamsize) length);
+        
+        if(arq.eofbit) {
+            //file read
+            for (int y = h-1; y >= 0; y--) {
+                for (int x = 0; x < w; x++){
+                    a = (((float) *update)/maxValue) * 0xFF;
+                    update++;
+                    r = (((float) *update)/maxValue) * 0xFF;
+                    update++;
+                    g = (((float) *update)/maxValue) * 0xFF;
+                    update++;
+                    b = (((float) *update)/maxValue) * 0xFF;
+                    update++;
+                    int argb = (a << 24) | (r << 16) | (g << 8) | b;
+                    if (argb != 0) {
+                        wait(NULL);
+                    }
+                    img->setPixel(argb, x, y);
+                }
+            }
+        } else {
+            std::cerr << "can't read full file";
+            exit(7);
+        }
     } else {
         std::cerr << "Corrupt or not found file, buffer is " << type;
         exit(7);

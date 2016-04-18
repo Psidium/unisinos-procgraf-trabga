@@ -13,6 +13,8 @@
 		4798C6011CBC6F620001E892 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798C6001CBC6F620001E892 /* GLUT.framework */; };
 		4798C6071CBC728C0001E892 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C6051CBC728C0001E892 /* Loader.cpp */; };
 		4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C6041CBC718B0001E892 /* braveText.ptm */; };
+		4798C60C1CBC7D690001E892 /* mario.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C60B1CBC7D630001E892 /* mario.ptm */; };
+		4798C60E1CBC8FA20001E892 /* logo_unisinos01.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +25,8 @@
 			dstSubfolderSpec = 16;
 			files = (
 				4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */,
+				4798C60E1CBC8FA20001E892 /* logo_unisinos01.ptm in CopyFiles */,
+				4798C60C1CBC7D690001E892 /* mario.ptm in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +42,8 @@
 		4798C6041CBC718B0001E892 /* braveText.ptm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = braveText.ptm; path = ../braveText.ptm; sourceTree = "<group>"; };
 		4798C6051CBC728C0001E892 /* Loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
 		4798C6061CBC728C0001E892 /* Loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Loader.hpp; sourceTree = "<group>"; };
+		4798C60B1CBC7D630001E892 /* mario.ptm */ = {isa = PBXFileReference; lastKnownFileType = text; path = mario.ptm; sourceTree = "<group>"; };
+		4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo_unisinos01.ptm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +85,9 @@
 				4798C5FC1CBC6EDD0001E892 /* Image.hpp */,
 				4798C6051CBC728C0001E892 /* Loader.cpp */,
 				4798C6061CBC728C0001E892 /* Loader.hpp */,
+				4798C60B1CBC7D630001E892 /* mario.ptm */,
 				4798C6041CBC718B0001E892 /* braveText.ptm */,
+				4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */,
 			);
 			path = JogoGA;
 			sourceTree = "<group>";
