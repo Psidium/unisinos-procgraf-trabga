@@ -54,8 +54,8 @@ Image* readImage(char* name) {
         }
     } else if (strcmp(type, "P8") == 0) { //binario
         size_t length = w * h * 4 * sizeof(char);
-        char* update = new char[length];
-        arq.read(update, (std::streamsize) length);
+        unsigned char* update = new unsigned char[length];
+        arq.read((char*) update, (std::streamsize) length);
         
         if(arq.eofbit) {
             //file read
@@ -68,11 +68,9 @@ Image* readImage(char* name) {
                     g = (((float) *update)/maxValue) * 0xFF;
                     update++;
                     b = (((float) *update)/maxValue) * 0xFF;
+                    std::cerr << "vlue tem float: " <<(float) *update << "mas tem " << (int ) *update;
                     update++;
                     int argb = (a << 24) | (r << 16) | (g << 8) | b;
-                    if (argb != 0) {
-                        wait(NULL);
-                    }
                     img->setPixel(argb, x, y);
                 }
             }
