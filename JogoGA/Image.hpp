@@ -23,6 +23,7 @@ public:
     int getHeight(){ return height; }
     int* getPixels(){ return pixels; }
     void plot(Image* fg, int sx, int sy);
+    void subimage(Image *dest, int srcX, int srcY);
     
     ~Image() { delete pixels; }
     Image* copy();

@@ -47,3 +47,13 @@ void Image::plot(Image* fg, int sx, int sy) {
         }
     }
 }
+
+void Image::subimage(Image *dest, int srcX, int srcY) {
+    int h = dest->getHeight();
+    int w = dest->getWidth();
+    for(int y=0; y< h;y++) {
+        for (int x=0; x< w; x++) {
+            dest->setPixel(this->getPixel(x + srcX, y + srcY), x, y);
+        }
+    }
+}
