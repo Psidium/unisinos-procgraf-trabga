@@ -42,6 +42,9 @@ void init(void)
     
     img = readImage("logo_unisinos01.ptm");
     
+    nextFrame = new Image(300,300);
+    img->subimage(nextFrame, 100, 100);
+    
     background->plot(img, 0, 0);
     
     /*  initialize viewing values  */

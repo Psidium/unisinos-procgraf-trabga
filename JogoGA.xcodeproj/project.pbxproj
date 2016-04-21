@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473D304E1CC5B482007F2562 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 473D304C1CC5B482007F2562 /* GameObject.cpp */; };
+		473D30511CC5B48E007F2562 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 473D304F1CC5B48E007F2562 /* Animation.cpp */; };
 		4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5F41CBC6DCD0001E892 /* main.cpp */; };
 		4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5FB1CBC6EDD0001E892 /* Image.cpp */; };
 		4798C5FF1CBC6F5D0001E892 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798C5FE1CBC6F5D0001E892 /* OpenGL.framework */; };
@@ -33,6 +35,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		473D304C1CC5B482007F2562 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		473D304D1CC5B482007F2562 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
+		473D304F1CC5B48E007F2562 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		473D30501CC5B48E007F2562 /* Animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
 		4798C5F11CBC6DCD0001E892 /* JogoGA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JogoGA; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798C5F41CBC6DCD0001E892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4798C5FB1CBC6EDD0001E892 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
@@ -81,6 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				4798C5F41CBC6DCD0001E892 /* main.cpp */,
+				473D304F1CC5B48E007F2562 /* Animation.cpp */,
+				473D30501CC5B48E007F2562 /* Animation.hpp */,
+				473D304C1CC5B482007F2562 /* GameObject.cpp */,
+				473D304D1CC5B482007F2562 /* GameObject.hpp */,
 				4798C5FB1CBC6EDD0001E892 /* Image.cpp */,
 				4798C5FC1CBC6EDD0001E892 /* Image.hpp */,
 				4798C6051CBC728C0001E892 /* Loader.cpp */,
@@ -148,9 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				473D304E1CC5B482007F2562 /* GameObject.cpp in Sources */,
 				4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */,
 				4798C6071CBC728C0001E892 /* Loader.cpp in Sources */,
 				4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */,
+				473D30511CC5B48E007F2562 /* Animation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +283,7 @@
 				4798C5FA1CBC6DCD0001E892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
