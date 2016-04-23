@@ -88,10 +88,12 @@ void update(int value){
     
     background->incCurrentFrame();
     scene = background->getCurrentFrame()->copy();
+    
+    
     if(front != NULL) {
-        ImageSpin* newFront = ((ImageSpin*) front)->spinWithRad(0.3);
-        scene->plot((Image*) newFront, 0, 0);
-        front =  (Image*) newFront;
+        Image holder = Image(1024, 200);
+        front->subimage(&holder, 0, front->getHeight() - holder.getHeight());
+        scene->plot(&holder, 0, 0);
     }
     
     glutPostRedisplay(); // para rederizar quadro "atual"

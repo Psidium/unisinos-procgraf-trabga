@@ -23,7 +23,7 @@ int Image::getPixel(int x, int y){
 
 Image* Image::copy() {
     Image* cpy = new Image(width, height);
-    memcpy(cpy->getPixels(), pixels, width*height);
+    memcpy(cpy->getPixels(), pixels, width*height * sizeof(int));
     return cpy;
 }
 
