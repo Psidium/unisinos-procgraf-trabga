@@ -18,7 +18,7 @@ public:
     GameObject(int posX, int posY);
     void incCurrentFrame();
     void setSprite(Animation* animtion);
-    Image* getFrame();
+    Image* getCurrentFrame();
 private:
     int currentFrame;
     int posX;

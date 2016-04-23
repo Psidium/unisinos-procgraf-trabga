@@ -54,9 +54,9 @@ Image* readImage(char* name) {
         }
     } else if (strcmp(type, "P8") == 0) { //binario
         size_t length = w * h * 4 * sizeof(char);
-        unsigned char* update = new unsigned char[length];
-        arq.read((char*) update, (std::streamsize) length);
-        
+        unsigned char* update = new unsigned char[length+1];
+        arq.read((char*) update, (std::streamsize) length+1);
+        unsigned char* start_update = update;
         if(arq.eofbit) {
             //file read
             update++;//THIS IS A \N I'M DEAD
@@ -70,9 +70,6 @@ Image* readImage(char* name) {
                     update++;
                     float b1 = (float) *update;
                     b = (b1/maxValue) * 0xFF;
-                    if (b != 0) {
-                        wait(NULL);
-                    }
                     update++;
                     int argb = (a << 24) | (r << 16) | (g << 8) | b;
                     img->setPixel(argb, x, y);
@@ -82,6 +79,7 @@ Image* readImage(char* name) {
             std::cerr << "can't read full file";
             exit(7);
         }
+        delete[] start_update;
     } else {
         std::cerr << "Corrupt or not found file, buffer is " << type;
         exit(7);

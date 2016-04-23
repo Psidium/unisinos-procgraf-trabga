@@ -25,12 +25,17 @@
 #include <stdio.h>
 #include "Image.hpp"
 #include "Loader.hpp"
+#include "GameObject.hpp"
+#include "Animation.hpp"
+#include "ImageSpin.hpp"
+
+#define BACK_COUNT 22
 
 unsigned char kb;
 
-Image* img;
-Image* background;
-Image* nextFrame;
+Image* scene;
+GameObject* background;
+Image* front;
 
 void init(void)
 {
@@ -38,15 +43,20 @@ void init(void)
     //glClearColor(0.0, 0.0, 0.0, 0.0);
     glClearColor(1.0, 1.0, 1.0, 1.0);
     
-    background = readImage("mario.ptm");
     
-    img = readImage("logo_unisinos01.ptm");
+    //create animation
+    Animation* animation = new Animation(BACK_COUNT);
+    for (int i = 1; i <= BACK_COUNT; i++) {
+        char filename[30];
+        sprintf(filename, "back1_%d..ptm", i);
+        Image* img = readImage(filename);
+        animation->addFrame(img);
+    }
     
-    nextFrame = new Image(300,300);
-    img->subimage(nextFrame, 100, 100);
+    background = new GameObject(0,0);
+    background->setSprite(animation);
     
-    background->plot(img, 0, 0);
-    
+    front = readImage("Grass.ptm");
     /*  initialize viewing values  */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -65,9 +75,27 @@ void keyboard(unsigned char key, int x, int y){
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glDrawPixels(background->getWidth(), background->getHeight(), GL_BGRA_EXT, GL_UNSIGNED_BYTE,background->getPixels());
+    glDrawPixels(scene->getWidth(), scene->getHeight(), GL_BGRA_EXT, GL_UNSIGNED_BYTE,scene->getPixels());
     
     glFlush();
+}
+
+void update(int value){
+    //destroy last image
+    if (scene != NULL) {
+        scene->~Image();
+    }
+    
+    background->incCurrentFrame();
+    scene = background->getCurrentFrame()->copy();
+    if(front != NULL) {
+        ImageSpin* newFront = ((ImageSpin*) front)->spinWithRad(0.3);
+        scene->plot((Image*) newFront, 0, 0);
+        front =  (Image*) newFront;
+    }
+    
+    glutPostRedisplay(); // para rederizar quadro "atual"
+    glutTimerFunc(60, update, value);
 }
 
 
@@ -79,6 +107,7 @@ int main(int argc, char** argv)
     glutInitWindowPosition(100, 100);
     glutCreateWindow("hello");
     init();
+    update(0);
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);

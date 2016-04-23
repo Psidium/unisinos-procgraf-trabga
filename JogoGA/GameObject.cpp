@@ -21,6 +21,6 @@ void GameObject::setSprite(Animation* animtion) {
     this->animation = animtion;
 }
 
-Image* GameObject::getFrame() {
+Image* GameObject::getCurrentFrame() {
     return this->animation->getFrame(this->currentFrame);
 }
