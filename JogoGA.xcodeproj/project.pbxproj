@@ -9,22 +9,10 @@
 /* Begin PBXBuildFile section */
 		473D304E1CC5B482007F2562 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 473D304C1CC5B482007F2562 /* GameObject.cpp */; };
 		473D30511CC5B48E007F2562 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 473D304F1CC5B48E007F2562 /* Animation.cpp */; };
-		473D30F61CC98C7B007F2562 /* back1_1..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30E81CC98C71007F2562 /* back1_1..ptm */; };
-		473D30F71CC98C7B007F2562 /* back1_2..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30E91CC98C71007F2562 /* back1_2..ptm */; };
-		473D30F81CC98C7B007F2562 /* back1_4..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30EA1CC98C71007F2562 /* back1_4..ptm */; };
-		473D30F91CC98C7B007F2562 /* back1_5..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30EB1CC98C71007F2562 /* back1_5..ptm */; };
-		473D30FA1CC98C7B007F2562 /* back1_6..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30EC1CC98C71007F2562 /* back1_6..ptm */; };
-		473D30FB1CC98C7B007F2562 /* back1_7..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30ED1CC98C71007F2562 /* back1_7..ptm */; };
-		473D30FC1CC98C7B007F2562 /* back1_8..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30EE1CC98C71007F2562 /* back1_8..ptm */; };
-		473D30FD1CC98C7B007F2562 /* back1_9..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30EF1CC98C71007F2562 /* back1_9..ptm */; };
-		473D30FE1CC98C7B007F2562 /* back1_11..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F01CC98C71007F2562 /* back1_11..ptm */; };
-		473D30FF1CC98C7B007F2562 /* back1_13..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F11CC98C71007F2562 /* back1_13..ptm */; };
-		473D31001CC98C7B007F2562 /* back1_16..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F21CC98C71007F2562 /* back1_16..ptm */; };
-		473D31011CC98C7B007F2562 /* back1_19..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F31CC98C71007F2562 /* back1_19..ptm */; };
-		473D31021CC98C7B007F2562 /* back1_21..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F41CC98C71007F2562 /* back1_21..ptm */; };
-		473D31031CC98C7B007F2562 /* back1_22..ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473D30F51CC98C71007F2562 /* back1_22..ptm */; };
-		47873C861CCACF7E0008568B /* ImageSpin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47873C841CCACF7E0008568B /* ImageSpin.cpp */; };
-		47873C881CCAECFC0008568B /* Grass.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47873C871CCAECF40008568B /* Grass.ptm */; };
+		47873C8A1CCBCAFF0008568B /* Grass.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47873C891CCBCAF90008568B /* Grass.ptm */; };
+		47873C8D1CCD05CD0008568B /* ParallaxLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47873C8B1CCD05CD0008568B /* ParallaxLayer.cpp */; };
+		47873C911CCEDAC90008568B /* FundoPaisagem.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47873C901CCEDAC40008568B /* FundoPaisagem.ptm */; };
+		47873C981CCEE6270008568B /* SpriteSheet2_s.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47873C971CCEE6230008568B /* SpriteSheet2_s.ptm */; };
 		4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5F41CBC6DCD0001E892 /* main.cpp */; };
 		4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C5FB1CBC6EDD0001E892 /* Image.cpp */; };
 		4798C5FF1CBC6F5D0001E892 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798C5FE1CBC6F5D0001E892 /* OpenGL.framework */; };
@@ -32,7 +20,6 @@
 		4798C6071CBC728C0001E892 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798C6051CBC728C0001E892 /* Loader.cpp */; };
 		4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C6041CBC718B0001E892 /* braveText.ptm */; };
 		4798C60C1CBC7D690001E892 /* mario.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C60B1CBC7D630001E892 /* mario.ptm */; };
-		4798C60E1CBC8FA20001E892 /* logo_unisinos01.ptm in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,23 +29,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				473D30F61CC98C7B007F2562 /* back1_1..ptm in CopyFiles */,
-				473D30F71CC98C7B007F2562 /* back1_2..ptm in CopyFiles */,
-				473D30F81CC98C7B007F2562 /* back1_4..ptm in CopyFiles */,
-				473D30F91CC98C7B007F2562 /* back1_5..ptm in CopyFiles */,
-				473D30FA1CC98C7B007F2562 /* back1_6..ptm in CopyFiles */,
-				473D30FB1CC98C7B007F2562 /* back1_7..ptm in CopyFiles */,
-				473D30FC1CC98C7B007F2562 /* back1_8..ptm in CopyFiles */,
-				473D30FD1CC98C7B007F2562 /* back1_9..ptm in CopyFiles */,
-				473D30FE1CC98C7B007F2562 /* back1_11..ptm in CopyFiles */,
-				473D30FF1CC98C7B007F2562 /* back1_13..ptm in CopyFiles */,
-				473D31001CC98C7B007F2562 /* back1_16..ptm in CopyFiles */,
-				473D31011CC98C7B007F2562 /* back1_19..ptm in CopyFiles */,
-				473D31021CC98C7B007F2562 /* back1_21..ptm in CopyFiles */,
-				473D31031CC98C7B007F2562 /* back1_22..ptm in CopyFiles */,
 				4798C60A1CBC76B40001E892 /* braveText.ptm in CopyFiles */,
-				4798C60E1CBC8FA20001E892 /* logo_unisinos01.ptm in CopyFiles */,
-				47873C881CCAECFC0008568B /* Grass.ptm in CopyFiles */,
+				47873C981CCEE6270008568B /* SpriteSheet2_s.ptm in CopyFiles */,
+				47873C911CCEDAC90008568B /* FundoPaisagem.ptm in CopyFiles */,
+				47873C8A1CCBCAFF0008568B /* Grass.ptm in CopyFiles */,
 				4798C60C1CBC7D690001E892 /* mario.ptm in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,23 +44,11 @@
 		473D304D1CC5B482007F2562 /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		473D304F1CC5B48E007F2562 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		473D30501CC5B48E007F2562 /* Animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
-		473D30E81CC98C71007F2562 /* back1_1..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_1..ptm; sourceTree = "<group>"; };
-		473D30E91CC98C71007F2562 /* back1_2..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_2..ptm; sourceTree = "<group>"; };
-		473D30EA1CC98C71007F2562 /* back1_4..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_4..ptm; sourceTree = "<group>"; };
-		473D30EB1CC98C71007F2562 /* back1_5..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_5..ptm; sourceTree = "<group>"; };
-		473D30EC1CC98C71007F2562 /* back1_6..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_6..ptm; sourceTree = "<group>"; };
-		473D30ED1CC98C71007F2562 /* back1_7..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_7..ptm; sourceTree = "<group>"; };
-		473D30EE1CC98C71007F2562 /* back1_8..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_8..ptm; sourceTree = "<group>"; };
-		473D30EF1CC98C71007F2562 /* back1_9..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_9..ptm; sourceTree = "<group>"; };
-		473D30F01CC98C71007F2562 /* back1_11..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_11..ptm; sourceTree = "<group>"; };
-		473D30F11CC98C71007F2562 /* back1_13..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_13..ptm; sourceTree = "<group>"; };
-		473D30F21CC98C71007F2562 /* back1_16..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_16..ptm; sourceTree = "<group>"; };
-		473D30F31CC98C71007F2562 /* back1_19..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_19..ptm; sourceTree = "<group>"; };
-		473D30F41CC98C71007F2562 /* back1_21..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_21..ptm; sourceTree = "<group>"; };
-		473D30F51CC98C71007F2562 /* back1_22..ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = back1_22..ptm; sourceTree = "<group>"; };
-		47873C841CCACF7E0008568B /* ImageSpin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSpin.cpp; sourceTree = "<group>"; };
-		47873C851CCACF7E0008568B /* ImageSpin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ImageSpin.hpp; sourceTree = "<group>"; };
-		47873C871CCAECF40008568B /* Grass.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grass.ptm; sourceTree = "<group>"; };
+		47873C891CCBCAF90008568B /* Grass.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grass.ptm; sourceTree = "<group>"; };
+		47873C8B1CCD05CD0008568B /* ParallaxLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallaxLayer.cpp; sourceTree = "<group>"; };
+		47873C8C1CCD05CD0008568B /* ParallaxLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParallaxLayer.hpp; sourceTree = "<group>"; };
+		47873C901CCEDAC40008568B /* FundoPaisagem.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = FundoPaisagem.ptm; sourceTree = "<group>"; };
+		47873C971CCEE6230008568B /* SpriteSheet2_s.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpriteSheet2_s.ptm; sourceTree = "<group>"; };
 		4798C5F11CBC6DCD0001E892 /* JogoGA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JogoGA; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798C5F41CBC6DCD0001E892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4798C5FB1CBC6EDD0001E892 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
@@ -97,7 +59,6 @@
 		4798C6051CBC728C0001E892 /* Loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
 		4798C6061CBC728C0001E892 /* Loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Loader.hpp; sourceTree = "<group>"; };
 		4798C60B1CBC7D630001E892 /* mario.ptm */ = {isa = PBXFileReference; lastKnownFileType = text; path = mario.ptm; sourceTree = "<group>"; };
-		4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo_unisinos01.ptm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,34 +96,21 @@
 			isa = PBXGroup;
 			children = (
 				4798C5F41CBC6DCD0001E892 /* main.cpp */,
-				47873C841CCACF7E0008568B /* ImageSpin.cpp */,
-				47873C851CCACF7E0008568B /* ImageSpin.hpp */,
 				473D304F1CC5B48E007F2562 /* Animation.cpp */,
 				473D30501CC5B48E007F2562 /* Animation.hpp */,
 				473D304C1CC5B482007F2562 /* GameObject.cpp */,
 				473D304D1CC5B482007F2562 /* GameObject.hpp */,
 				4798C5FB1CBC6EDD0001E892 /* Image.cpp */,
 				4798C5FC1CBC6EDD0001E892 /* Image.hpp */,
+				47873C8B1CCD05CD0008568B /* ParallaxLayer.cpp */,
+				47873C8C1CCD05CD0008568B /* ParallaxLayer.hpp */,
 				4798C6051CBC728C0001E892 /* Loader.cpp */,
 				4798C6061CBC728C0001E892 /* Loader.hpp */,
 				4798C60B1CBC7D630001E892 /* mario.ptm */,
+				47873C901CCEDAC40008568B /* FundoPaisagem.ptm */,
 				4798C6041CBC718B0001E892 /* braveText.ptm */,
-				4798C60D1CBC8F9E0001E892 /* logo_unisinos01.ptm */,
-				473D30E81CC98C71007F2562 /* back1_1..ptm */,
-				473D30E91CC98C71007F2562 /* back1_2..ptm */,
-				473D30EA1CC98C71007F2562 /* back1_4..ptm */,
-				473D30EB1CC98C71007F2562 /* back1_5..ptm */,
-				473D30EC1CC98C71007F2562 /* back1_6..ptm */,
-				473D30ED1CC98C71007F2562 /* back1_7..ptm */,
-				473D30EE1CC98C71007F2562 /* back1_8..ptm */,
-				473D30EF1CC98C71007F2562 /* back1_9..ptm */,
-				473D30F01CC98C71007F2562 /* back1_11..ptm */,
-				473D30F11CC98C71007F2562 /* back1_13..ptm */,
-				473D30F21CC98C71007F2562 /* back1_16..ptm */,
-				473D30F31CC98C71007F2562 /* back1_19..ptm */,
-				473D30F41CC98C71007F2562 /* back1_21..ptm */,
-				473D30F51CC98C71007F2562 /* back1_22..ptm */,
-				47873C871CCAECF40008568B /* Grass.ptm */,
+				47873C971CCEE6230008568B /* SpriteSheet2_s.ptm */,
+				47873C891CCBCAF90008568B /* Grass.ptm */,
 			);
 			path = JogoGA;
 			sourceTree = "<group>";
@@ -224,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				473D304E1CC5B482007F2562 /* GameObject.cpp in Sources */,
-				47873C861CCACF7E0008568B /* ImageSpin.cpp in Sources */,
+				47873C8D1CCD05CD0008568B /* ParallaxLayer.cpp in Sources */,
 				4798C5F51CBC6DCD0001E892 /* main.cpp in Sources */,
 				4798C6071CBC728C0001E892 /* Loader.cpp in Sources */,
 				4798C5FD1CBC6EDD0001E892 /* Image.cpp in Sources */,
