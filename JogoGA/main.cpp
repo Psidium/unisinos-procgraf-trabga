@@ -28,17 +28,19 @@
 #include "GameObject.hpp"
 #include "Animation.hpp"
 
-#define BACK_COUNT 22
-
-unsigned char kb;
-
 Image* scene;
 Image* background;
+Image* ground;
 Image* front;
+Image* pedra;
+Image* montanha;
 GameObject* andaDireita;
 GameObject* andaEsquerda;
 bool andandoParaEsquerda = false;
 bool andandoParaDireita = false;
+bool isJumping = false;
+
+int x,y;
 
 void init(void)
 {
@@ -55,6 +57,8 @@ void init(void)
         Image* img = readImage(filename);
         animation->addFrame(img);
     }*/
+    
+    x = 0, y =0;
     
     background = readImage("FundoPaisagem.ptm");
     
@@ -95,7 +99,11 @@ void init(void)
     sprite->~Image();
     
     
+    ground = readImage("Chao.ptm");
     
+    montanha = readImage("FundoMontanhas.ptm");
+    
+    pedra = readImage("Pedra.ptm");
     
     /*  initialize viewing values  */
     glMatrixMode(GL_PROJECTION);
@@ -109,13 +117,26 @@ void reshape(int width, int height){
 }
 
 void keyboard(unsigned char key, int x, int y){
-    kb = key;
 }
 
+void calcVerticalVector(bool start) {
+    static int currentTime = 0;
+    if (start && !isJumping) {
+        isJumping = true;
+        currentTime = 0;
+    }
+    y = ground->getHeight() + 100 * currentTime + (-30 * pow(currentTime,2)) / 2;
+    currentTime++;
+    if (y < ground->getHeight()) {
+        isJumping = false;
+        return;
+    }
+}
 
 void specialInput(int key, int x, int y) {
     switch(key) {
         case GLUT_KEY_UP:
+            calcVerticalVector(true);
             break;
         case GLUT_KEY_DOWN:
             break;
@@ -127,6 +148,7 @@ void specialInput(int key, int x, int y) {
             break;
     }
 }
+
 
 void specialUp(int key, int x, int y) {
     switch(key) {
@@ -159,24 +181,36 @@ void update(int value) {
         scene->~Image();
     }
     scene = background->copy();
-    int x =0, y=0;
+    
+    if (isJumping) {
+        calcVerticalVector(false);
+    }
+    if (y < ground->getHeight()) {
+        y=ground->getHeight();
+    }
+    
     if (andandoParaEsquerda) {
+        x -= 10;
         andaEsquerda->incCurrentFrame();
         lastFrame = andaEsquerda->getCurrentFrame();
     } else if (andandoParaDireita) {
+        x += 10;
         andaDireita->incCurrentFrame();
         lastFrame = andaDireita->getCurrentFrame();
     } else if (lastFrame == NULL) {
         lastFrame = andaEsquerda->getCurrentFrame();
     }
-        
+    
+    scene->plot(montanha, 0,0);
+    scene->plot(ground, 0,0);
     scene->plot(lastFrame, x, y);
+    scene->plot(pedra, 200, -100);
     glutPostRedisplay(); // para rederizar quadro "atual"
-    glutTimerFunc(250, update, value);
+    glutTimerFunc(60, update, value);
 }
 
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
