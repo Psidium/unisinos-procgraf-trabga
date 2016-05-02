@@ -10,7 +10,7 @@
 
 Image::Image(int w, int h) {
     width = w; height = h;
-    pixels = new int[w*h];
+    pixels = (int *) calloc(w*h, sizeof(int));
 }
 
 void Image::setPixel(int rgb, int x, int y){
@@ -30,13 +30,11 @@ Image* Image::copy() {
 void Image::plot(Image* fg, int sx, int sy) {
     float a;
     int r,g,b, pixelUp, pixel;
-    int maxY = (fg->getHeight() > height) ? height : fg->getHeight();
-    int maxX = (fg->getWidth() > width) ? width : fg->getWidth();
-    for (int y = 0; y < maxY; y++) {
+    for (int y = 0; y < fg->getHeight(); y++) {
         if (y + sy < 0 || y + sy > height) { //protect y outside bounds
             continue;
         }
-        for (int x = 0; x < maxX; x++){
+        for (int x = 0; x < fg->getWidth(); x++){
             if (x + sx < 0 || x + sx > width) {
                 continue;
             }

@@ -9,6 +9,7 @@
 #ifndef Image_hpp
 #define Image_hpp
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 

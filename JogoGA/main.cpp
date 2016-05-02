@@ -28,11 +28,15 @@
 #include "GameObject.hpp"
 #include "Animation.hpp"
 
+#define GAME_CONSTANT_MOTION 10
+#define VIEWPORT_X 1000
+#define VIEWPORT_Y 750
+
 Image* scene;
 Image* background;
 Image* ground;
 Image* front;
-Image* pedra;
+Image* arvore;
 Image* montanha;
 GameObject* andaDireita;
 GameObject* andaEsquerda;
@@ -41,7 +45,7 @@ bool andandoParaEsquerda = false;
 bool andandoParaDireita = false;
 bool isJumping = false;
 
-int x,y;
+int x = 200, y = 0;
 
 void init(void)
 {
@@ -59,11 +63,10 @@ void init(void)
         animation->addFrame(img);
     }*/
     
-    x = 0, y =0;
     
     background = readImage("FundoPaisagem.ptm");
     //cut to fit the viewport
-    Image* nBack = new Image(1000,750);
+    Image* nBack = new Image(VIEWPORT_X, VIEWPORT_Y);
     nBack->plot(background, 0,0);
     background->~Image();
     background = nBack;
@@ -110,7 +113,7 @@ void init(void)
     
     montanha = readImage("FundoMontanhas.ptm");
     
-    pedra = readImage("Pedra.ptm");
+    arvore = readImage("Arvore1.ptm");
     
     /*  initialize viewing values  */
     glMatrixMode(GL_PROJECTION);
@@ -120,7 +123,7 @@ void init(void)
 
 
 void reshape(int width, int height){
-    glutReshapeWindow(1000, 750);
+    glutReshapeWindow(VIEWPORT_X, VIEWPORT_Y);
 }
 
 void keyboard(unsigned char key, int x, int y){
@@ -178,9 +181,9 @@ void specialUp(int key, int x, int y) {
     
 }
 
-std::pair<int,int> controlConstantMotion(Image* groundLayer) {
-    static int x = 0, y=0;
-    return std::pair<int,int>(x,y);
+void contro() {
+    static int wx = 0;
+    wx += GAME_CONSTANT_MOTION/2;
 }
 
 
@@ -194,6 +197,18 @@ void display(){
 
 void update(int value) {
     static Image* lastFrame;
+    
+    //don't recalculate everything if nothing is changed
+    static int ox =0, oy=0;
+    //if old x is equal to current x and old y is equal to current y and isn't walingRight neither Left neither jumping
+    if (ox == x && oy == y && !andandoParaDireita && !andandoParaEsquerda && !isJumping) {
+        //postpone calculation for next frame
+        glutTimerFunc(60, update, value);
+        return;
+    } else {
+        ox = x;
+        oy = y;
+    }
     //destroy last image
     if (scene != NULL) {
         scene->~Image();
@@ -207,22 +222,37 @@ void update(int value) {
         y=ground->getHeight();
     }
     
+    //control the bicho on top of the ground
     if (andandoParaEsquerda) {
-        x -= 10;
+        x -= GAME_CONSTANT_MOTION;
         andaEsquerda->incCurrentFrame();
         lastFrame = andaEsquerda->getCurrentFrame();
     } else if (andandoParaDireita) {
-        x += 10;
+        x += GAME_CONSTANT_MOTION;
         andaDireita->incCurrentFrame();
         lastFrame = andaDireita->getCurrentFrame();
     } else if (lastFrame == NULL) {
-        lastFrame = andaEsquerda->getCurrentFrame();
+        lastFrame = andaDireita->getCurrentFrame();
     }
+    //limit bicho's walking possibilities
+    if (x < 0) x = 0;
+    if (x + lastFrame->getWidth() > ground->getWidth()) x = ground->getWidth() - lastFrame->getWidth();
     
-    scene->plot(montanha, 0,0);
-    scene->plot(ground, 0,0);
-    scene->plot(lastFrame, x, y);
-    scene->plot(pedra, 200, -100);
+    
+    Image actionLayer = Image(ground->getWidth(), VIEWPORT_Y);
+    actionLayer.plot(ground, 0, 0);
+    actionLayer.plot(lastFrame, x, y);
+    
+    int parX =0, parY =0;
+    if (x > VIEWPORT_X/3) {
+        parX = VIEWPORT_X/3 - x;
+        if (abs(parX) + VIEWPORT_X > actionLayer.getWidth()) {
+            parX = VIEWPORT_X - actionLayer.getWidth();
+        }
+    }
+    scene->plot(montanha, parX/2 * VIEWPORT_X/montanha->getWidth(),0);
+    scene->plot(&actionLayer, parX, parY);
+    scene->plot(arvore, parX * VIEWPORT_X/arvore->getWidth() + VIEWPORT_X*3/4, 0);
     glutPostRedisplay(); // para rederizar quadro "atual"
     glutTimerFunc(60, update, value);
 }
@@ -232,7 +262,7 @@ int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(1000, 750);
+    glutInitWindowSize(VIEWPORT_X, VIEWPORT_Y);
     glutInitWindowPosition(100, 100);
     glutCreateWindow("hello");
     init();
