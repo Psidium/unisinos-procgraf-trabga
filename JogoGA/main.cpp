@@ -28,9 +28,11 @@
 #include "GameObject.hpp"
 #include "Animation.hpp"
 
-#define GAME_CONSTANT_MOTION 10
+#define GAME_CONSTANT_MOTION 15
+#define POSICAO_PEDRA 400
 #define VIEWPORT_X 1000
 #define VIEWPORT_Y 750
+#define JUMP_UP_INITAL_VELOCITY 75
 
 Image* scene;
 Image* background;
@@ -38,6 +40,7 @@ Image* ground;
 Image* front;
 Image* arvore;
 Image* montanha;
+Image* pedra;
 GameObject* andaDireita;
 GameObject* andaEsquerda;
 
@@ -115,6 +118,8 @@ void init(void)
     
     arvore = readImage("Arvore1.ptm");
     
+    pedra = readImage("Pedra.ptm");
+    
     /*  initialize viewing values  */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -126,11 +131,19 @@ void reshape(int width, int height){
     glutReshapeWindow(VIEWPORT_X, VIEWPORT_Y);
 }
 
+int getGroundYforX(int cx) {
+    if (cx > POSICAO_PEDRA && pedra->getWidth() + POSICAO_PEDRA > cx) {
+        return pedra->getHeight() + ground->getHeight();
+    } else {
+        return ground->getHeight();
+    }
+}
+
 void keyboard(unsigned char key, int x, int y){
 }
 
-void calcVerticalVector(bool start) {
-    static int currentTime = 0;
+void calcVerticalVector(bool start, int initialVelocity) {
+    static int currentTime = 0, firstGroundHeight = 0, internalInitialVelocity = 0;
     //protect the jump
     if (start && isJumping){
         return;
@@ -139,11 +152,19 @@ void calcVerticalVector(bool start) {
     if (start && !isJumping) {
         isJumping = true;
         currentTime = 0;
+        internalInitialVelocity = initialVelocity;
+        firstGroundHeight = getGroundYforX(x + andaEsquerda->getCurrentFrame()->getWidth()/2);
     }
-    y = ground->getHeight() + 100 * currentTime + (-30 * pow(currentTime,2)) / 2;
+    y = firstGroundHeight + internalInitialVelocity * currentTime + (-10 * pow(currentTime,2)) / 2;
     currentTime++;
-    if (y < ground->getHeight()) {
+    if (y < getGroundYforX(x + andaEsquerda->getCurrentFrame()->getWidth())) {
         isJumping = false;
+        y = getGroundYforX(x + andaEsquerda->getCurrentFrame()->getWidth());
+        return;
+    }
+    if (y < getGroundYforX(x)) {
+        isJumping = false;
+        y = getGroundYforX(x);
         return;
     }
 }
@@ -151,7 +172,7 @@ void calcVerticalVector(bool start) {
 void specialInput(int key, int x, int y) {
     switch(key) {
         case GLUT_KEY_UP:
-            calcVerticalVector(true);
+            calcVerticalVector(true, JUMP_UP_INITAL_VELOCITY);
             break;
         case GLUT_KEY_DOWN:
             break;
@@ -181,11 +202,6 @@ void specialUp(int key, int x, int y) {
     
 }
 
-void contro() {
-    static int wx = 0;
-    wx += GAME_CONSTANT_MOTION/2;
-}
-
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
@@ -209,17 +225,15 @@ void update(int value) {
         ox = x;
         oy = y;
     }
-    //destroy last image
-    if (scene != NULL) {
-        scene->~Image();
-    }
-    scene = background->copy();
+    
+    
+    // =============== GAME LOGIC =========
     
     if (isJumping) {
-        calcVerticalVector(false);
+        calcVerticalVector(false, JUMP_UP_INITAL_VELOCITY);
     }
-    if (y < ground->getHeight()) {
-        y=ground->getHeight();
+    if (y < getGroundYforX(x)) {
+        y=getGroundYforX(x);
     }
     
     //control the bicho on top of the ground
@@ -237,10 +251,30 @@ void update(int value) {
     //limit bicho's walking possibilities
     if (x < 0) x = 0;
     if (x + lastFrame->getWidth() > ground->getWidth()) x = ground->getWidth() - lastFrame->getWidth();
+    if (y < getGroundYforX(x + lastFrame->getWidth()) || y < getGroundYforX(x)){
+        //if is on the rock position
+        if (y < getGroundYforX(x + lastFrame->getWidth())) { //if is by the right
+            x = POSICAO_PEDRA - lastFrame->getWidth();
+        } else  {
+            x = POSICAO_PEDRA + pedra->getWidth();
+        }
+    }
     
+    //check if gravity should apply for new X
+    
+    if (!isJumping && (y > getGroundYforX(x) && y > getGroundYforX(x + lastFrame->getWidth()))) {
+        calcVerticalVector(true, 0);
+    }
+    
+    //=========== PRODUCE IMAGE ========
+    if (scene != NULL) {
+        scene->~Image();
+    }
+    scene = background->copy();
     
     Image actionLayer = Image(ground->getWidth(), VIEWPORT_Y);
     actionLayer.plot(ground, 0, 0);
+    actionLayer.plot(pedra, POSICAO_PEDRA, ground->getHeight());
     actionLayer.plot(lastFrame, x, y);
     
     int parX =0, parY =0;
