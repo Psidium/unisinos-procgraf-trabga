@@ -36,6 +36,7 @@ Image* pedra;
 Image* montanha;
 GameObject* andaDireita;
 GameObject* andaEsquerda;
+
 bool andandoParaEsquerda = false;
 bool andandoParaDireita = false;
 bool isJumping = false;
@@ -61,6 +62,12 @@ void init(void)
     x = 0, y =0;
     
     background = readImage("FundoPaisagem.ptm");
+    //cut to fit the viewport
+    Image* nBack = new Image(1000,750);
+    nBack->plot(background, 0,0);
+    background->~Image();
+    background = nBack;
+    
     
     Image* sprite = readImage("SpriteSheet2_s.ptm");
     
@@ -121,6 +128,11 @@ void keyboard(unsigned char key, int x, int y){
 
 void calcVerticalVector(bool start) {
     static int currentTime = 0;
+    //protect the jump
+    if (start && isJumping){
+        return;
+    } else
+    ///handle start of jumping
     if (start && !isJumping) {
         isJumping = true;
         currentTime = 0;
@@ -165,6 +177,12 @@ void specialUp(int key, int x, int y) {
     }
     
 }
+
+std::pair<int,int> controlConstantMotion(Image* groundLayer) {
+    static int x = 0, y=0;
+    return std::pair<int,int>(x,y);
+}
+
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);

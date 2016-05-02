@@ -30,8 +30,16 @@ Image* Image::copy() {
 void Image::plot(Image* fg, int sx, int sy) {
     float a;
     int r,g,b, pixelUp, pixel;
-    for (int y = 0; y < fg->getHeight(); y++){
-        for (int x = 0; x < fg->getWidth(); x++){
+    int maxY = (fg->getHeight() > height) ? height : fg->getHeight();
+    int maxX = (fg->getWidth() > width) ? width : fg->getWidth();
+    for (int y = 0; y < maxY; y++) {
+        if (y + sy < 0 || y + sy > height) { //protect y outside bounds
+            continue;
+        }
+        for (int x = 0; x < maxX; x++){
+            if (x + sx < 0 || x + sx > width) {
+                continue;
+            }
             pixelUp = fg->getPixel(x, y);
             pixel = this->getPixel(x + sx, y + sy);
             a = ((pixelUp >> 24) & 0xFF) / 0xFF;
