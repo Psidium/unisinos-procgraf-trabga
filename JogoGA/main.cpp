@@ -286,7 +286,7 @@ void update(int value) {
     }
     scene->plot(montanha, parX/2 * VIEWPORT_X/montanha->getWidth(),0);
     scene->plot(&actionLayer, parX, parY);
-    scene->plot(arvore, parX * VIEWPORT_X/arvore->getWidth() + VIEWPORT_X*3/4, 0);
+    scene->plot(arvore, parX * VIEWPORT_X/arvore->getWidth() + VIEWPORT_X*3, 0);
     glutPostRedisplay(); // para rederizar quadro "atual"
     glutTimerFunc(60, update, value);
 }
